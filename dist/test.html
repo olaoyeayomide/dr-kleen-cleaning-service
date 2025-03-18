@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DR.Kleen - Cleaning Service</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="output.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Adding font awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+
+      .hero-wave {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+      }
+
+      .bubble {
+        position: absolute;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        animation: float 8s infinite ease-in-out;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navigation Bar -->
+    <header class="bg-white py-4 shadow-sm">
+      <div
+        class="container max-w-screen-xl mx-auto px-4 flex flex-wrap items-center justify-between"
+      >
+        <!-- Logo -->
+        <div class="flex items-center">
+          <div
+            class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center mr-2"
+          >
+            <span class="text-white text-xl">🧹</span>
+          </div>
+          <div>
+            <h1 class="text-2xl font-bold text-gray-800">Bixol</h1>
+            <p class="text-xs text-gray-500">Cleaning service</p>
+          </div>
+        </div>
+
+        <!-- Mobile Menu and Cart (1024px and below) -->
+        <div class="flex items-center lg:hidden space-x-4">
+          <!-- Cart Icon -->
+          <button
+            id="cart-toggle"
+            class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md"
+          >
+            <i class="fas fa-shopping-cart text-gray-600"></i>
+          </button>
+          <!-- Hamburger Menu -->
+          <button id="menu-toggle" class="focus:outline-none">
+            <i class="fas fa-bars text-2xl text-gray-600"></i>
+          </button>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center space-x-8">
+          <a
+            href="#"
+            class="text-secondary font-medium border-b-2 border-blue-500 pb-1"
+            >Home</a
+          >
+          <a href="#" class="text-gray-600 hover:text-secondary">About</a>
+          <a href="#" class="text-gray-600 hover:text-secondary">Services</a>
+          <a href="#" class="text-gray-600 hover:text-secondary">Portfolio</a>
+          <a href="#" class="text-gray-600 hover:text-secondary">Pricing</a>
+          <a href="#" class="text-gray-600 hover:text-secondary">Contact</a>
+        </nav>
+
+        <!-- Search and Cart (Desktop) -->
+        <div class="hidden lg:flex items-center space-x-4">
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Search"
+              class="bg-gray-100 rounded-full py-2 px-4 pl-10 text-sm focus:outline-none"
+            />
+            <i class="fas fa-search absolute left-3 top-2.5 text-gray-400"></i>
+          </div>
+          <button
+            id="cart-toggle-desktop"
+            class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md"
+          >
+            <i class="fas fa-shopping-cart text-gray-600"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu Slide-In (Left) -->
+    <div
+      id="mobile-menu"
+      class="fixed inset-y-0 left-0 w-64 bg-white shadow-lg transform -translate-x-full transition-transform z-50"
+    >
+      <div class="flex items-center justify-between p-4 border-b">
+        <h2 class="text-xl font-bold">Bixol</h2>
+        <button id="close-menu" class="text-xl">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="p-4 space-y-4">
+        <a href="#" class="block py-2 text-gray-700 hover:bg-gray-100 rounded"
+          >Home</a
+        >
+        <a href="#" class="block py-2 text-gray-700 hover:bg-gray-100 rounded"
+          >About</a
+        >
+        <a href="#" class="block py-2 text-gray-700 hover:bg-gray-100 rounded"
+          >Services</a
+        >
+        <a href="#" class="block py-2 text-gray-700 hover:bg-gray-100 rounded"
+          >Portfolio</a
+        >
+        <a href="#" class="block py-2 text-gray-700 hover:bg-gray-100 rounded"
+          >Pricing</a
+        >
+        <a href="#" class="block py-2 text-gray-700 hover:bg-gray-100 rounded"
+          >Contact</a
+        >
+      </div>
+    </div>
+
+    <!-- Cart Side Panel (Right) -->
+    <div
+      id="cart-panel"
+      class="fixed inset-y-0 right-0 w-72 bg-white shadow-lg transform translate-x-full transition-transform z-50"
+    >
+      <div class="flex items-center justify-between p-4 border-b">
+        <h2 class="text-xl font-bold">Your Cart</h2>
+        <button id="close-cart" class="text-xl">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="p-4">
+        <p class="text-gray-700">No items in the cart.</p>
+      </div>
+    </div>
+
+    <!-- Overlay when mobile menu or cart is open -->
+    <div
+      id="overlay"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"
+    ></div>
+
+    <!-- Hero Section -->
+    <section class="relative bg-white py-16 overflow-hidden">
+      <div
+        class="container mx-auto max-w-screen-lg px-4 flex flex-col md:flex-row items-center"
+      >
+        <!-- Left Content -->
+        <div class="max-w-xl mb-10 md:mb-0 relative z-10">
+          <div class="flex items-center mb-4">
+            <span
+              class="inline-block bg-blue-100 text-secondary rounded-full p-1 mr-2"
+            >
+              <i class="fas fa-check text-xs"></i>
+            </span>
+            <p class="text-primary font-medium">Top-notch cleaning</p>
+          </div>
+
+          <h1
+            class="mb-4 text-[2rem] font-extrabold tracking-tight leading-tight text-secondary sm:text-5xl md:text-4xl xl:text-[3.5rem]"
+          >
+            Top-notch cleaning
+            <span
+              class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-primary relative inline-block"
+            >
+              <span class="relative text-white">services</span>
+            </span>
+            you can trust
+          </h1>
+
+          <p
+            class="max-w-md mb-6 font-normal text-gray-500 lg:mb-8 text-base sm:text-lg md:text-xl lg:text-sm"
+          >
+            As a professional cleaning service, we help organizations adjust to
+            the highest cleanliness standards.
+          </p>
+
+          <div class="flex items-center space-x-4">
+            <button
+              class="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-lg"
+            >
+              <i class="fas fa-play text-white"></i>
+            </button>
+            <button
+              class="bg-gradient-to-r from-gradientStart via-gradientMid to-gradientEnd text-white py-3 px-6 rounded-full shadow-lg flex items-center"
+            >
+              About us
+              <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Content - Image -->
+        <div class="md:w-1/2 relative">
+          <div
+            class="z-10 relative mx-auto rounded-full from-yellow-300 to-yellow-800 overflow-hidden before:absolute before:h-[340px] before:w-[340px] before:rounded-full before:bg-gradient-to-b h-auto w-auto sm:before:h-[300px] sm:before:w-[300px] md:h-[400px] md:w-[400px] md:before:h-[380px] md:before:w-[380px] 2xl:h-[550px] 2xl:w-[550px] 2xl:before:h-[530px] 2xl:before:w-[530px]"
+          >
+            <img
+              src="https://i.ibb.co/ydGsRzk/cheerful-ethnic-housewife-has-braids-poses-with-mop-detergent-bottle-happy-clean.png"
+              alt="Cleaning Professional"
+              class="absolute z-0 bottom-0 right-0 h-full w-full object-cover"
+            />
+
+            <!-- Small circle with person image -->
+            <div
+              class="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-white p-1 shadow-lg"
+            >
+              <div
+                class="w-full h-full rounded-full bg-yellow-400 flex items-center justify-center overflow-hidden"
+              >
+                <img
+                  src="/api/placeholder/80/80"
+                  alt="Customer"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Bubble elements -->
+          <div class="bubble w-6 h-6 top-10 left-10"></div>
+          <div class="bubble w-10 h-10 bottom-20 right-20"></div>
+          <div class="bubble w-8 h-8 top-20 right-10"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Get Free Estimate Section -->
+    <section
+      class="relative w-fit h-auto md:min-w-max md:min-h-20 flex-wrap md:flex-nowrap justify-between gap-10 items-center p-4 flex justify-self-center py-4 -mt-4 bg-white border border-gray-200 rounded-lg shadow-lg shadow-blue-500/50"
+    >
+      <div class="container max-w-screen-lg mx-auto px-4">
+        <div
+          class="flex flex-col gap-0 sm:gap-16 md:flex-row space-y-4 md:space-y-0 md:space-x-4"
+        >
+          <div>
+            <h2 class="text-base md:text-lg font-bold">Support 24/7</h2>
+            <p class="text-xs md:text-sm">
+              Monday - Friday (9:00a.m.-5:00p.m.)
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-base md:text-lg font-bold">Payment Secure</h2>
+            <p class="text-xs md:text-sm">Free Contact with Cleaner Man</p>
+          </div>
+
+          <div>
+            <h2 class="text-base md:text-lg font-bold">
+              Top Cleaning Services
+            </h2>
+            <p class="text-xs md:text-sm">Contact us 24 Hours a day</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section Preview -->
+    <section class="py-16">
+      <div class="container max-w-screen-lg mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center">
+          <!-- Left Image -->
+          <div class="md:w-1/2 md:mt-14">
+            <div class="relative inline-block">
+              <img
+                src="https://i.ibb.co/ykT2qjZ/side-view-man-cleaning-window.jpg"
+                alt="Cleaning Staff"
+                class="rounded-lg shadow-xl w-full md:h-[375px] max-w-fit mx-auto"
+              />
+
+              <!-- Experience Badge -->
+              <div
+                class="absolute right-0 top-1/4 translate-y-[-50%] bg-white rounded-none p-3 w-fit h-fit flex flex-col items-center justify-center overflow-hidden"
+              >
+                <!-- Yellow border and background -->
+                <div
+                  class="absolute top-0 right-0 w-full h-full border-l-4 border-t-4 border-yellow-400"
+                ></div>
+
+                <!-- Badge content with blue text -->
+                <div
+                  class="bg-white p-2 w-full h-full flex flex-col items-center justify-center"
+                >
+                  <div class="flex items-baseline">
+                    <span class="text-secondary text-3xl font-bold">12</span>
+                    <span class="text-primary text-lg font-bold">+</span>
+                  </div>
+                  <span class="text-sm text-gray-800 font-extrabold"
+                    >Years Experience</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Content -->
+          <div class="md:w-1/2 md:pl-12">
+            <div
+              class="inline-block text-primary py-1 text-sm font-medium mb-4"
+            >
+              About Cleaning Agency
+            </div>
+
+            <h2 class="text-[2rem] font-bold text-secondary mb-6">
+              Why will you choose
+              <span class="font-normal break-words">our services?</span>
+            </h2>
+
+            <p
+              class="mb-4 text-base text-pretty text-start font-normal text-gray-500"
+            >
+              Here at Flowbite we focus on markets where technology, innovation,
+              and capital can unlock long-term value and drive economic growth.
+            </p>
+
+            <ul
+              class="mb-6 max-w-md space-y-1 text-gray-500 list-inside dark:text-gray-400"
+            >
+              <li class="flex items-center">
+                <svg
+                  class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
+                  />
+                </svg>
+                <p class="text-sm text-start">
+                  The housekeepers we hired are professionals who take pride in
+                  doing excellent work and in exceeding expectations.
+                </p>
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
+                  />
+                </svg>
+                <p class="text-sm text-start">
+                  We carefully screen all of our cleaners, so you can rest
+                  assured that your home would receive the absolute highest
+                  quality of service providing.
+                </p>
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"
+                  />
+                </svg>
+                <p class="text-sm text-start">
+                  ijriutuertrotrogirogjerijfeyusefj
+                </p>
+              </li>
+            </ul>
+
+            <div class="flex sm:flex-row sm:justify-start">
+              <button
+                href="#"
+                class="inline-flex justify-center items-center font-medium text-center text-white rounded-lg bg-gradient-to-r from-gradientStart via-gradientMid to-gradientEnd dark:from-blue-500 dark:via-blue-600 dark:to-blue-700 hover:bg-gradient-to-br text-sm px-6 py-3 me-2"
+              >
+                Get started
+                <i class="fas fa-arrow-right ml-2"></i>
+              </button>
+              <button
+                href="#"
+                class="px-6 py-3 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-secondary focus:z-10 focus:ring-4 focus:ring-gray-100"
+              >
+                Learn more
+              </button>
+            </div>
+
+            <!-- Content continues... -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section
+      class="bg-gray-100 py-16 flex justify-center items-center min-h-screen overflow-hidden"
+    >
+      <div
+        class="container mx-auto max-w-screen-lg md:animate-slideLeft h-full px-4 sm:px-8 md:px-12 lg:px-16"
+      >
+        <div class="text-center">
+          <p
+            class="text-[#f5ca4f] text-xs md:text-sm tracking-widest dark:text-white"
+          >
+            OUR BEST SERVICES
+          </p>
+          <h2
+            class="text-blue-700 mb-4 text-3xl sm:text-2xl md:text-4xl lg:text-4xl font-bold tracking-tight leading-none dark:text-white"
+          >
+            Our Regular <span class="text-[#f5ca4f]">Services</span> For <br />
+            Our Customers
+          </h2>
+        </div>
+
+        <div class="space-y-8 container max-w-screen-lg mx-auto relative">
+          <!-- Upper Row -->
+          <div class="relative overflow-hidden">
+            <div
+              class="flex md:flex-row flex-col items-center md:animate-slideRight space-x-0 md:space-x-4 space-y-4 md:space-y-0"
+            >
+              <div class="group relative w-full md:w-1/4 h-44 md:h-[19rem]">
+                <img
+                  src="https://i.ibb.co/ykT2qjZ/side-view-man-cleaning-window.jpg"
+                  alt="Small Image"
+                  class="w-full h-full object-cover rounded-lg shadow-md group-hover:blur-sm transition duration-300"
+                />
+
+                <div
+                  class="absolute p-4 flex justify-end inset-0 bg-blue-600 opacity-0 group-hover:opacity-50 transition duration-300"
+                ></div>
+
+                <div
+                  class="absolute bottom-2 left-4 text-white opacity-0 group-hover:opacity-100 transition duration-300"
+                >
+                  <div class="flex justify-center">
+                    <div>
+                      <h3 class="text-white font-bold text-lg">
+                        Dishes Cleaning
+                      </h3>
+                      <p class="text-white text-sm">Window cleaning</p>
+                    </div>
+                  </div>
+                  <div
+                    class="absolute bottom-4 right-4 bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center"
+                  >
+                    <span class="text-xl">+</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="group relative w-full md:w-1/4 h-[28rem] md:h-[19rem]"
+              >
+                <img
+                  src="https://i.ibb.co/ykT2qjZ/side-view-man-cleaning-window.jpg"
+                  alt="Small Image"
+                  class="w-full h-full object-cover rounded-lg shadow-md group-hover:blur-sm transition duration-300"
+                />
+
+                <div
+                  class="absolute p-4 flex justify-end inset-0 bg-blue-600 opacity-0 group-hover:opacity-50 transition duration-300"
+                ></div>
+
+                <div
+                  class="absolute bottom-2 left-4 text-white opacity-0 group-hover:opacity-100 transition duration-300"
+                >
+                  <div class="flex justify-center">
+                    <div>
+                      <h3 class="text-white font-bold text-lg">
+                        Dishes Cleaning
+                      </h3>
+                      <p class="text-white text-sm">Window cleaning</p>
+                    </div>
+                  </div>
+                  <div
+                    class="absolute bottom-4 right-4 bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center"
+                  >
+                    <span class="text-xl">+</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="group relative w-full md:w-3/5 h-[28rem] md:h-full">
+                <img
+                  src="https://i.ibb.co/ykT2qjZ/side-view-man-cleaning-window.jpg"
+                  alt="Big Image"
+                  class="w-full h-full md:w-full md:h-full object-cover rounded-lg shadow-md group-hover:blur-sm transition duration-300"
+                />
+
+                <div
+                  class="absolute p-4 flex justify-end inset-0 bg-blue-600 opacity-0 group-hover:opacity-50 transition duration-300"
+                ></div>
+
+                <div
+                  class="absolute bottom-2 left-4 text-white opacity-0 group-hover:opacity-100 transition duration-300"
+                >
+                  <div class="flex justify-center">
+                    <div>
+                      <h3 class="text-white font-bold text-lg">
+                        Dishes Cleaning
+                      </h3>
+                      <p class="text-white text-sm">Window cleaning</p>
+                    </div>
+                  </div>
+                  <div
+                    class="absolute bottom-4 right-4 bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center"
+                  >
+                    <span class="text-xl">+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lower Row -->
+          <div class="relative overflow-hidden">
+            <div
+              class="flex md:flex-row flex-col items-center md:animate-slideRight space-x-0 md:space-x-4 space-y-4 md:space-y-0"
+            >
+              <div
+                class="group relative w-full md:w-1/4 h-[28rem] md:h-[19rem]"
+              >
+                <img
+                  src="https://i.ibb.co/ykT2qjZ/side-view-man-cleaning-window.jpg"
+                  alt="Small Image"
+                  class="w-full h-full object-cover rounded-lg shadow-md group-hover:blur-sm transition duration-300"
+                />
+
+                <div
+                  class="absolute p-4 flex justify-end inset-0 bg-blue-600 opacity-0 group-hover:opacity-50 transition duration-300"
+                ></div>
+
+                <div
+                  class="absolute bottom-2 left-4 text-white opacity-0 group-hover:opacity-100 transition duration-300"
+                >
+                  <div class="flex justify-center">
+                    <div>
+                      <h3 class="text-white font-bold text-lg">
+                        Dishes Cleaning
+                      </h3>
+                      <p class="text-white text-sm">Window cleaning</p>
+                    </div>
+                  </div>
+                  <div
+                    class="absolute bottom-4 right-4 bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center"
+                  >
+                    <span class="text-xl">+</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="group relative w-full md:w-1/4 h-[28rem] md:h-[19rem]"
+              >
+                <img
+                  src="https://i.ibb.co/ykT2qjZ/side-view-man-cleaning-window.jpg"
+                  alt="Small Image"
+                  class="w-full h-full object-cover rounded-lg shadow-md group-hover:blur-sm transition duration-300"
+                />
+
+                <div
+                  class="absolute p-4 flex justify-end inset-0 bg-blue-600 opacity-0 group-hover:opacity-50 transition duration-300"
+                ></div>
+
+                <div
+                  class="absolute bottom-2 left-4 text-white opacity-0 group-hover:opacity-100 transition duration-300"
+                >
+                  <div class="flex justify-center">
+                    <div>
+                      <h3 class="text-white font-bold text-lg">
+                        Dishes Cleaning
+                      </h3>
+                      <p class="text-white text-sm">Window cleaning</p>
+                    </div>
+                  </div>
+                  <div
+                    class="absolute bottom-4 right-4 bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center"
+                  >
+                    <span class="text-xl">+</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="group relative w-full md:w-3/5 h-44 md:h-full">
+                <img
+                  src="https://i.ibb.co/ykT2qjZ/side-view-man-cleaning-window.jpg"
+                  alt="Big Image"
+                  class="w-full h-full md:w-full md:h-full object-cover rounded-lg shadow-md group-hover:blur-sm transition duration-300"
+                />
+
+                <div
+                  class="absolute p-4 flex justify-end inset-0 bg-blue-600 opacity-0 group-hover:opacity-50 transition duration-300"
+                ></div>
+
+                <div
+                  class="absolute bottom-2 left-4 text-white opacity-0 group-hover:opacity-100 transition duration-300"
+                >
+                  <div class="flex justify-center">
+                    <div>
+                      <h3 class="text-white font-bold text-lg">
+                        Dishes Cleaning
+                      </h3>
+                      <p class="text-white text-sm">Window cleaning</p>
+                    </div>
+                  </div>
+                  <div
+                    class="absolute bottom-4 right-4 bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center"
+                  >
+                    <span class="text-xl">+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Process -->
+    <section class="py-16 overflow-hidden">
+      <div class="container mx-auto max-w-screen-lg px-4 items-center">
+        <div class="text-center mb-10">
+          <h2
+            class="text-[#f5ca4f] text-xs md:text-sm tracking-widest dark:text-white"
+          >
+            OUR WORKING PROCESS
+          </h2>
+          <p
+            class="text-blue-700 mb-4 text-3xl sm:text-2xl md:text-4xl lg:text-4xl font-bold tracking-tight leading-none dark:text-white"
+          >
+            WORK PROCESS
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <!-- Card 1 -->
+          <div
+            class="max-w-full relative p-6 bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 rounded-2xl shadow-lg"
+          >
+            <div
+              class="absolute bottom-0 right-0 bg-blue-100 rounded-tl-full place-self-end w-20 h-20 flex items-center justify-center"
+            >
+              <span class="text-2xl font-bold text-blue-700">01</span>
+            </div>
+            <h5
+              class="mb-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              Book Online Form
+            </h5>
+            <p class="text-sm text-gray-700 dark:text-gray-400">
+              Dolor sit amet hac convallis cras facilisis. Platea nec sollicit
+              nostra ipsum dui ullamcorper magnus.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="max-w-full relative pt-6 pr-6 pb-6 pl-20 bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 rounded-2xl shadow-lg"
+          >
+            <div
+              class="absolute bottom-0 left-0 bg-blue-100 rounded-tr-full place-self-end w-20 h-20 flex items-center justify-center"
+            >
+              <span class="text-2xl font-bold text-blue-700">02</span>
+            </div>
+            <h5
+              class="mb-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              Get Confirmation
+            </h5>
+            <p class="text-sm text-gray-700 dark:text-gray-400">
+              Dolor sit amet hac convallis cras facilisis. Platea nec sollicit
+              nostra ipsum dui ullamcorper magnus.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="max-w-full relative p-6 bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 rounded-2xl shadow-lg"
+          >
+            <div
+              class="absolute top-0 right-0 bg-blue-100 rounded-bl-full place-self-end w-20 h-20 flex items-center justify-center"
+            >
+              <span class="text-2xl font-bold text-blue-700">03</span>
+            </div>
+            <h5
+              class="mb-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              Estimate Budget
+            </h5>
+            <p class="text-sm text-gray-700 dark:text-gray-400">
+              Dolor sit amet hac convallis cras facilisis. Platea nec sollicit
+              nostra ipsum dui ullamcorper magnus.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="max-w-full relative pt-6 pr-6 pb-6 pl-20 bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 rounded-2xl shadow-lg"
+          >
+            <div
+              class="absolute top-0 left-0 bg-blue-100 rounded-br-full place-self-end w-20 h-20 flex items-center justify-center"
+            >
+              <span class="text-2xl font-bold text-blue-700">04</span>
+            </div>
+            <h5
+              class="mb-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              Hire Our Agent!
+            </h5>
+            <p class="text-sm text-gray-700 dark:text-gray-400">
+              Dolor sit amet hac convallis cras facilisis. Platea nec sollicit
+              nostra ipsum dui ullamcorper magnus.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- After this above add the booking details -->
+
+    <!-- Different company youve worked with -->
+    <section
+      class="bg-auto h-[200px] content-center"
+      style="background-image: url('https://i.ibb.co/0s7Psth/image.png')"
+    >
+      <div class="w-3/5 flex justify-between items-center h-20 p-4 m-auto">
+        <div>
+          <h2 class="text-base font-bold">Bounvita</h2>
+          <p class="text-xs">Monday - Friday (9:00a.m.-5:00p.m.)</p>
+        </div>
+        <div
+          class="right-0 top-0 hidden h-full min-h-[1em] w-0.5 self-stretch border-t-0 bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-30 dark:via-neutral-400 lg:block"
+        ></div>
+
+        <div>
+          <h2 class="text-base font-bold">Cadbhury</h2>
+          <p class="text-xs">Free Contact with Cleaner Man</p>
+        </div>
+        <div
+          class="right-0 top-0 hidden h-full min-h-[1em] w-0.5 self-stretch border-t-0 bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-30 dark:via-neutral-400 lg:block"
+        ></div>
+        <div>
+          <h2 class="text-base font-bold">Top Cleaning Services</h2>
+          <p class="text-xs">Contact us 24 Hours a day</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gray-900 text-white">
+      <div class="container mx-auto px-4 py-12">
+        <div class="grid md:grid-cols-2 gap-10">
+          <!-- Contact Section -->
+          <div>
+            <h2 class="text-4xl font-bold mb-4">Contact us</h2>
+            <p class="mb-6">
+              In need of our services or have questions?
+              <a href="#" class="text-yellow-400">Send us a message</a> and we
+              will contact you within 1-2 business days.
+            </p>
+            <p class="mb-2">
+              <strong>Phone:</strong>
+              <span class="text-yellow-400">888-422-2623</span>
+            </p>
+            <p class="mb-6"><strong>Fax:</strong> 772.564.7227</p>
+            <p class="mb-6 text-yellow-400">info@cleanservices.com</p>
+            <form action="#" class="space-y-4">
+              <div class="grid grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  placeholder="Your name*"
+                  class="w-full p-3 bg-gray-800 text-white border border-gray-700 rounded"
+                />
+                <input
+                  type="text"
+                  placeholder="Phone number*"
+                  class="w-full p-3 bg-gray-800 text-white border border-gray-700 rounded"
+                />
+              </div>
+              <select
+                class="w-full p-3 bg-gray-800 text-white border border-gray-700 rounded"
+              >
+                <option>Choose services</option>
+              </select>
+              <textarea
+                placeholder="Message..."
+                class="w-full p-3 bg-gray-800 text-white border border-gray-700 rounded"
+              ></textarea>
+              <button
+                type="submit"
+                class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-md font-semibold"
+              >
+                Send
+              </button>
+            </form>
+          </div>
+
+          <!-- Testimonials Section -->
+          <div>
+            <h2 class="text-4xl font-bold mb-6">Testimonials</h2>
+            <p class="mb-8">
+              Each home is unique and we understand that. Our team is trained to
+              take on majority of cleaning tasks.
+            </p>
+            <div class="space-y-6">
+              <!-- Testimonial Card -->
+              <div class="bg-gray-800 p-6 rounded-lg relative">
+                <blockquote class="italic mb-4">
+                  "As a web crawler expert, I help organizations adjust to the
+                  expanding significance of internet promoting."
+                </blockquote>
+                <div class="flex items-center space-x-4">
+                  <img
+                    src="https://via.placeholder.com/50"
+                    alt="Farhan Rio"
+                    class="w-12 h-12 rounded-full"
+                  />
+                  <div>
+                    <p class="font-bold">Farhan Rio</p>
+                    <p class="text-yellow-400">Agent Manager</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Testimonial Card -->
+              <div class="bg-gray-800 p-6 rounded-lg relative">
+                <blockquote class="italic mb-4">
+                  "As a web crawler expert, I help organizations adjust to the
+                  expanding significance of internet promoting."
+                </blockquote>
+                <div class="flex items-center space-x-4">
+                  <img
+                    src="https://via.placeholder.com/50"
+                    alt="Leofar Tom"
+                    class="w-12 h-12 rounded-full"
+                  />
+                  <div>
+                    <p class="font-bold">Leofar Tom</p>
+                    <p class="text-yellow-400">Founder of Ref Group</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="drkleen.js"></script>
+  </body>
+</html>

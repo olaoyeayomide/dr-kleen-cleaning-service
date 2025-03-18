@@ -2,6 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-.splide__splide {
-  width: 266px;
+@layer utilities {
+  .fade-right {
+    -webkit-mask: linear-gradient(to right, #fff 70%, transparent 100%);
+    mask: linear-gradient(to right, #fff 70%, transparent 100%);
+  }
+
+  .fade-left {
+    -webkit-mask: linear-gradient(to right, transparent 0%, #fff 100%);
+    mask: linear-gradient(to right, transparent -5%, #fff 100%);
+  }
+}
+
+.custom-pattern {
+  background: radial-gradient(
+      circle at top left,
+      transparent 9%,
+      #efefef 10%,
+      #efefef 15%,
+      transparent 16%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      transparent 9%,
+      #efefef 10%,
+      #efefef 15%,
+      transparent 16%
+    ),
+    radial-gradient(
+      circle at top right,
+      transparent 9%,
+      #efefef 10%,
+      #efefef 15%,
+      transparent 16%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      transparent 9%,
+      #efefef 10%,
+      #efefef 15%,
+      transparent 16%
+    ),
+    radial-gradient(circle, transparent 25%, #ffffff 26%),
+    linear-gradient(
+      0deg,
+      transparent 44%,
+      #efefef 45%,
+      #efefef 55%,
+      transparent 56%
+    ),
+    linear-gradient(
+      90deg,
+      transparent 44%,
+      #efefef 45%,
+      #efefef 55%,
+      transparent 56%
+    );
+  background-size: 1em 1em;
+  background-color: #ffffff;
+  opacity: 1;
+
+  .magicpattern {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: repeat;
+    background-image: url("data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 1440 480%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cmask id=%22b%22 x=%220%22 y=%220%22 width=%221440%22 height=%22480%22%3E%3Cpath fill=%22url(%23a)%22 d=%22M0 0h1440v480H0z%22%2F%3E%3C%2Fmask%3E%3Cg style=%22transform-origin:center center%22 stroke=%22%23c2c2c2%22 stroke-width=%221.152%22 mask=%22url(%23b)%22%3E%3Cpath fill=%22%23c2c2c2fd%22 d=%22M0 0h48v48H0z%22%2F%3E%3Cpath fill=%22none%22 d=%22M48 0h48v48H48z%22%2F%3E%3Cpath fill=%22%23c2c2c22a%22 d=%22M96 0h48v48H96z%22%2F%3E%3Cpath fill=%22%23c2c2c217%22 d=%22M288 0h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M576 0h48v48h-48zM672 0h48v48h-48zM768 0h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c244%22 d=%22M864 0h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c279%22 d=%22M1008 0h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c2ca%22 d=%22M1104 0h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M1152 0h48v48h-48zM1200 0h48v48h-48zM1296 0h48v48h-48zM1344 0h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c2a5%22 d=%22M1392 0h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M0 48h48v48H0zM288 48h48v48h-48zM384 48h48v48h-48zM480 48h48v48h-48zM528 48h48v48h-48zM624 48h48v48h-48zM768 48h48v48h-48zM864 48h48v48h-48zM1104 48h48v48h-48zM1152 48h48v48h-48zM1248 48h48v48h-48zM0 96h48v48H0zM144 96h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c26e%22 d=%22M192 96h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c2b4%22 d=%22M240 96h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M288 96h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c2ef%22 d=%22M336 96h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c23a%22 d=%22M432 96h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M528 96h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c2d6%22 d=%22M576 96h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c269%22 d=%22M624 96h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M720 96h48v48h-48zM768 96h48v48h-48zM864 96h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c267%22 d=%22M1104 96h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c26f%22 d=%22M1200 96h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M1248 96h48v48h-48zM1296 96h48v48h-48zM1344 96h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c2f2%22 d=%22M0 144h48v48H0z%22%2F%3E%3Cpath fill=%22%23c2c2c23f%22 d=%22M432 144h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M624 144h48v48h-48zM720 144h48v48h-48zM768 144h48v48h-48zM864 144h48v48h-48zM912 144h48v48h-48zM1008 144h48v48h-48zM1056 144h48v48h-48zM1104 144h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c275%22 d=%22M1152 144h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c287%22 d=%22M1344 144h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M48 192h48v48H48zM96 192h48v48H96zM144 192h48v48h-48zM192 192h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c205%22 d=%22M288 192h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M432 192h48v48h-48zM528 192h48v48h-48zM624 192h48v48h-48zM672 192h48v48h-48zM816 192h48v48h-48zM864 192h48v48h-48zM1008 192h48v48h-48zM0 240h48v48H0zM48 240h48v48H48z%22%2F%3E%3Cpath fill=%22%23c2c2c2de%22 d=%22M144 240h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c2e5%22 d=%22M384 240h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c2a1%22 d=%22M576 240h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M624 240h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c2e4%22 d=%22M720 240h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M768 240h48v48h-48zM864 240h48v48h-48zM1008 240h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c2b5%22 d=%22M1152 240h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M0 288h48v48H0z%22%2F%3E%3Cpath fill=%22%23c2c2c2e4%22 d=%22M48 288h48v48H48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M144 288h48v48h-48zM192 288h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c2c8%22 d=%22M240 288h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c2e9%22 d=%22M288 288h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M336 288h48v48h-48zM480 288h48v48h-48zM576 288h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c2e8%22 d=%22M624 288h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c26c%22 d=%22M864 288h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M912 288h48v48h-48zM1296 288h48v48h-48zM1392 288h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c26b%22 d=%22M0 336h48v48H0z%22%2F%3E%3Cpath fill=%22none%22 d=%22M48 336h48v48H48z%22%2F%3E%3Cpath fill=%22%23c2c2c234%22 d=%22M144 336h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M240 336h48v48h-48zM288 336h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c220%22 d=%22M336 336h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c262%22 d=%22M384 336h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M480 336h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c256%22 d=%22M576 336h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M768 336h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c2c0%22 d=%22M816 336h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M960 336h48v48h-48zM1008 336h48v48h-48zM1104 336h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c2bd%22 d=%22M1152 336h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c2f7%22 d=%22M1248 336h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M1392 336h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c2be%22 d=%22M48 384h48v48H48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M192 384h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c231%22 d=%22M240 384h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M288 384h48v48h-48zM336 384h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c25c%22 d=%22M528 384h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M576 384h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c276%22 d=%22M624 384h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M672 384h48v48h-48zM720 384h48v48h-48zM816 384h48v48h-48zM960 384h48v48h-48zM1008 384h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c2f5%22 d=%22M1104 384h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M1248 384h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c2ed%22 d=%22M1296 384h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M1392 384h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c2a0%22 d=%22M96 432h48v48H96z%22%2F%3E%3Cpath fill=%22none%22 d=%22M336 432h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c24b%22 d=%22M432 432h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M480 432h48v48h-48zM864 432h48v48h-48zM960 432h48v48h-48z%22%2F%3E%3Cpath fill=%22%23c2c2c24b%22 d=%22M1056 432h48v48h-48z%22%2F%3E%3Cpath fill=%22none%22 d=%22M1248 432h48v48h-48z%22%2F%3E%3C%2Fg%3E%3Cdefs%3E%3CradialGradient id=%22a%22%3E%3Cstop offset=%2235.2%25%22 stop-color=%22%23fff%22 stop-opacity=%220%22%2F%3E%3Cstop offset=%22100%25%22 stop-color=%22%23fff%22 stop-opacity=%22.648%22%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3C%2Fsvg%3E");
+  }
 }
