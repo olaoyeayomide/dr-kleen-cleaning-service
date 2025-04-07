@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+.hero-wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background-image: url("https://i.ibb.co/8DY7QnhC/istockphoto-157479770-1024x1024-jpg-1735516999874-removebg-preview.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: float 8s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
 @layer utilities {
   .fade-right {
     -webkit-mask: linear-gradient(to right, #fff 70%, transparent 100%);
@@ -10,7 +38,7 @@
 
   .fade-left {
     -webkit-mask: linear-gradient(to right, transparent 0%, #fff 100%);
-    mask: linear-gradient(to right, transparent -5%, #fff 100%);
+    mask: linear-gradient(to left, #fff 0%, transparent 100%);
   }
 }
 

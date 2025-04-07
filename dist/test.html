@@ -11,44 +11,13 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Public+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
     <!-- Adding font awesome for icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
-
-      body {
-        font-family: "Poppins", sans-serif;
-      }
-
-      .hero-wave {
-        position: absolute;
-        bottom: -1px;
-        left: 0;
-        width: 100%;
-        overflow: hidden;
-        line-height: 0;
-      }
-
-      .bubble {
-        position: absolute;
-        border-radius: 50%;
-        background-color: rgba(255, 255, 255, 0.1);
-        animation: float 8s infinite ease-in-out;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-20px);
-        }
-      }
-    </style>
   </head>
   <body class="bg-gray-50">
     <!-- Navigation Bar -->
@@ -68,8 +37,8 @@
             />
           </div>
           <div>
-            <h1 class="text-2xl font-bold text-gray-800">Dr.Kleen</h1>
-            <p class="text-xs text-gray-500">Cleaning service</p>
+            <h1 class="font-bree text-2xl font-bold text-gray-800">Dr.Kleen</h1>
+            <p class="font-public text-xs text-gray-500">Cleaning service</p>
           </div>
         </div>
 
@@ -179,51 +148,98 @@
 
     <!-- Hero Section -->
     <section class="relative bg-white py-16 overflow-hidden">
+      <!-- Floating Bubbles -->
+      <div class="absolute inset-0 pointer-events-none">
+        <!-- Bubble Elements -->
+        <div
+          class="bubble"
+          style="width: 60px; height: 60px; top: 20%; left: 10%"
+        ></div>
+        <div
+          class="bubble"
+          style="width: 80px; height: 80px; top: 25%; left: 40%"
+        ></div>
+        <div
+          class="bubble"
+          style="width: 80px; height: 80px; top: 40%; left: 25%"
+        ></div>
+        <div
+          class="bubble"
+          style="width: 50px; height: 50px; top: 60%; left: 50%"
+        ></div>
+        <div
+          class="bubble"
+          style="width: 100px; height: 100px; top: 30%; left: 90%"
+        ></div>
+        <div
+          class="bubble"
+          style="width: 40px; height: 40px; top: 60%; left: 85%"
+        ></div>
+
+        <!-- Soap Icon -->
+        <div class="absolute top-24 left-20 flex items-center justify-center">
+          <img
+            src="https://i.ibb.co/dJMz9r8Q/sponge-1.png"
+            alt="Soap Icon"
+            class="w-12 h-12"
+          />
+        </div>
+
+        <!-- Arrow Icon -->
+        <!-- <div class="absolute top-[24rem] left-[32rem] w-24">
+          <img
+            src="https://i.ibb.co/Fk199VXF/swirly-arrow-4.png"
+            class="w-24"
+          />
+        </div> -->
+      </div>
+
       <div
-        class="container mx-auto max-w-screen-lg px-4 flex flex-col md:flex-row items-center"
+        class="container mx-auto max-w-screen-lg px-4 flex flex-col md:flex-row md:gap-16 items-center"
       >
         <!-- Left Content -->
         <div class="max-w-xl mb-10 md:mb-0 relative z-10">
-          <div class="flex items-center mb-4">
-            <span
-              class="inline-block bg-blue-100 text-secondary rounded-full p-1 mr-2"
-            >
-              <i class="fas fa-check text-xs"></i>
-            </span>
-            <p class="text-primary font-medium">Top-notch cleaning</p>
-          </div>
 
           <h1
-            class="mb-4 xl:leading-[4.5rem] text-[2rem] font-extrabold tracking-tight text-secondary sm:text-5xl md:text-4xl xl:text-[3.5rem]"
+            class="font-bree mb-4 xl:leading-[3.5rem] text-[2rem] font-extrabold tracking-tight text-secondary sm:text-5xl md:text-4xl xl:text-[3.25rem]"
           >
-            Top-notch cleaning
+          Experience the
             <span
               class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-primary relative inline-block"
             >
-              <span class="relative text-white">services</span>
+              <span class="relative text-white">Ultimate</span>
             </span>
-            you can trust
+            Deep Cleaning with Dr.Kleen
           </h1>
 
           <p
-            class="max-w-md mb-6 font-normal text-gray-500 lg:mb-8 text-base sm:text-lg md:text-xl lg:text-sm"
+            class="font-public mb-4 font-normal text-gray-500 text-base sm:text-lg md:text-xl lg:text-sm"
           >
-            As a professional cleaning service, we help organizations adjust to
-            the highest cleanliness standards.
+          At DrKleen, we offer comprehensive cleaning solutions tailored to your needs, from residential deep cleans to commercial sanitation. Discover our eco-friendly products and services that ensure a spotless environment for your home or business.
           </p>
 
           <div class="flex items-center space-x-4">
             <button
-              class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 flex items-center justify-center shadow-lg"
+              class="w-12 h-12 rounded-full bg-gradient-to-r from-gradientStart via-gradientMid to-gradientEnd flex items-center justify-center shadow-lg"
             >
               <i class="fas fa-play text-white"></i>
             </button>
             <button
-              class="bg-gradient-to-r from-gradientStart via-gradientMid to-gradientEnd text-white py-3 px-6 rounded-full shadow-lg flex items-center"
-            >
-              About us
-              <i class="fas fa-arrow-right ml-2"></i>
-            </button>
+            class="bg-gradient-to-r from-whiteGradientStart via-whiteGradientMid to-whiteGradientEnd text-secondary font-bold w-auto h-auto py-3 px-6 rounded-full ring ring-secondary flex items-center 
+              focus:shadow-lg focus:shadow-[#007bff]/50 active:shadow-lg active:shadow-[#007bff]/50"
+          >
+            About us
+            <i class="fas fa-arrow-right ml-2"></i>
+          </button>
+          
+
+            <!-- Arrow Icon -->
+            <div class="flex items-center place-self-start w-24">
+              <img
+                src="https://i.ibb.co/Fk199VXF/swirly-arrow-4.png"
+                class="w-24"
+              />
+            </div>
           </div>
         </div>
 
@@ -253,11 +269,6 @@
               </div>
             </div>
           </div>
-
-          <!-- Bubble elements -->
-          <div class="bubble w-6 h-6 top-10 left-10"></div>
-          <div class="bubble w-10 h-10 bottom-20 right-20"></div>
-          <div class="bubble w-8 h-8 top-20 right-10"></div>
         </div>
       </div>
     </section>
@@ -266,55 +277,82 @@
     <section
       class="relative w-fit h-auto md:min-w-max md:min-h-20 flex-wrap md:flex-nowrap justify-between gap-10 items-center p-4 flex justify-self-center py-4 -mt-4 bg-white border border-gray-200 rounded-lg shadow-lg shadow-blue-500/50"
     >
-      <div class="container max-w-screen-lg mx-auto px-4">
+      <div class="mx-auto px-4">
         <div
-          class="flex flex-col gap-0 sm:gap-16 md:flex-row space-y-4 md:space-y-0 md:space-x-4"
+          class="flex flex-col gap-8 sm:gap-0 md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8"
         >
-          <div>
-            <h2 class="text-base md:text-lg font-bold">Support 24/7</h2>
-            <p class="text-xs md:text-sm">
-              Monday - Friday (9:00a.m.-5:00p.m.)
-            </p>
+          <!-- Support 24/7 -->
+          <div class="flex flex-col md:flex-row items-start gap-3 text-left">
+            <img
+              class="w-10 h-10"
+              src="https://i.ibb.co/Q3g30yVJ/24-hours.png"
+              alt="24/7 Support"
+            />
+            <div>
+              <h2 class="text-base md:text-lg font-bold">Support 24/7</h2>
+              <p class="text-xs md:text-sm">
+                Monday - Friday (9:00a.m.-5:00p.m.)
+              </p>
+            </div>
           </div>
 
-          <div>
-            <h2 class="text-base md:text-lg font-bold">Payment Secure</h2>
-            <p class="text-xs md:text-sm">Free Contact with Cleaner Man</p>
+          <!-- Divider -->
+          <div class="hidden md:block h-10 border-l border-gray-300"></div>
+
+          <!-- Payment Secure -->
+          <div class="flex flex-col md:flex-row items-start gap-3 text-left">
+            <img
+              class="w-10 h-10"
+              src="https://i.ibb.co/6RyB9hzk/credit-card.png"
+              alt="Payment Secure"
+            />
+            <div>
+              <h2 class="text-base md:text-lg font-bold">Payment Secure</h2>
+              <p class="text-xs md:text-sm">Free Contact with Cleaner Man</p>
+            </div>
           </div>
 
-          <div>
-            <h2 class="text-base md:text-lg font-bold">
-              Top Cleaning Services
-            </h2>
-            <p class="text-xs md:text-sm">Contact us 24 Hours a day</p>
+          <!-- Divider -->
+          <div class="hidden md:block h-10 border-l border-gray-300"></div>
+
+          <!-- Top Cleaning Services -->
+          <div class="flex flex-col md:flex-row items-start gap-3 text-left">
+            <img
+              class="w-10 h-10"
+              src="https://i.ibb.co/Q3T28CBz/nettoyage-de-vitres.png"
+              alt="Cleaning Services"
+            />
+            <div>
+              <h2 class="text-base md:text-lg font-bold">
+                Top Cleaning Services
+              </h2>
+              <p class="text-xs md:text-sm">Contact us 24 Hours a day</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- About Section Preview -->
-    <section class="py-16">
-      <div class="container max-w-screen-lg mx-auto px-4">
-        <div class="flex flex-col md:flex-row items-center">
+    <section class="py-16 bg-bubble-bg bg-left bg-cover">
+
+      <div class="container max-w-screen-lg mx-auto px-4 relative">
+        <div class="flex flex-col md:flex-row items-center relative z-10">
           <!-- Left Image -->
-          <div class="md:w-1/2 md:mt-14">
+          <div class="w-full lg:w-1/2 relative">
             <div class="relative inline-block">
               <img
                 src="https://i.ibb.co/ykT2qjZ/side-view-man-cleaning-window.jpg"
                 alt="Cleaning Staff"
-                class="rounded-lg shadow-xl w-full md:h-[375px] max-w-fit mx-auto"
+                class="rounded-2xl shadow-xl object-cover w-full md:h-1/2 aspect-square mx-auto"
               />
-
               <!-- Experience Badge -->
               <div
                 class="absolute right-0 top-1/4 translate-y-[-50%] bg-white rounded-none p-3 w-fit h-fit flex flex-col items-center justify-center overflow-hidden"
               >
-                <!-- Yellow border and background -->
                 <div
                   class="absolute top-0 right-0 w-full h-full border-l-4 border-t-4 border-yellow-400"
                 ></div>
-
-                <!-- Badge content with blue text -->
                 <div
                   class="bg-white p-2 w-full h-full flex flex-col items-center justify-center"
                 >
@@ -331,32 +369,23 @@
           </div>
 
           <!-- Right Content -->
-          <div class="md:w-1/2 md:pl-12">
-            <div
-              class="inline-block text-primary py-1 text-sm font-medium mb-4"
-            >
-              About Cleaning Agency
-            </div>
-
-            <h2 class="text-[2rem] font-bold text-secondary mb-6">
+          <div class="w-full lg:w-1/2 md:pl-12 relative z-10">
+            <h2 class="font-bree text-2xl md:text-3xl font-bold text-secondary mb-4">
               Why will you choose
               <span class="font-normal break-words">our services?</span>
             </h2>
-
             <p
               class="mb-4 text-base text-pretty text-start font-normal text-gray-500"
             >
               Here at Flowbite we focus on markets where technology, innovation,
               and capital can unlock long-term value and drive economic growth.
             </p>
-
             <ul
               class="mb-6 max-w-md space-y-1 text-gray-500 list-inside dark:text-gray-400"
             >
               <li class="flex items-center">
                 <svg
                   class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0"
-                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
                   viewBox="0 0 20 20"
@@ -367,13 +396,12 @@
                 </svg>
                 <p class="text-sm text-start">
                   The housekeepers we hired are professionals who take pride in
-                  doing excellent work and in exceeding expectations.
+                  doing excellent work and exceeding expectations.
                 </p>
               </li>
               <li class="flex items-center">
                 <svg
                   class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0"
-                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
                   viewBox="0 0 20 20"
@@ -383,15 +411,13 @@
                   />
                 </svg>
                 <p class="text-sm text-start">
-                  We carefully screen all of our cleaners, so you can rest
-                  assured that your home would receive the absolute highest
-                  quality of service providing.
+                  We carefully screen all of our cleaners to ensure high-quality
+                  service.
                 </p>
               </li>
               <li class="flex items-center">
                 <svg
                   class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0"
-                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
                   viewBox="0 0 20 20"
@@ -401,271 +427,214 @@
                   />
                 </svg>
                 <p class="text-sm text-start">
-                  ijriutuertrotrogirogjerijfeyusefj
+                  Providing reliable and professional cleaning services.
                 </p>
               </li>
             </ul>
 
             <div class="flex sm:flex-row sm:justify-start">
               <button
-                href="#"
-                class="inline-flex justify-center items-center font-medium text-center text-white rounded-lg bg-gradient-to-r from-gradientStart via-gradientMid to-gradientEnd dark:from-blue-500 dark:via-blue-600 dark:to-blue-700 hover:bg-gradient-to-br text-sm px-6 py-3 me-2"
+                class="inline-flex justify-center items-center font-medium text-center text-white rounded-full bg-gradient-to-r from-gradientStart via-gradientMid to-gradientEnd hover:bg-gradient-to-br text-sm px-6 py-3 me-2 ring ring-white"
               >
                 Get started
                 <i class="fas fa-arrow-right ml-2"></i>
               </button>
               <button
-                href="#"
-                class="px-6 py-3 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-secondary focus:z-10 focus:ring-4 focus:ring-gray-100"
+                class="px-6 py-3 sm:ms-4 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-secondary"
               >
                 Learn more
               </button>
             </div>
-
-            <!-- Content continues... -->
           </div>
         </div>
       </div>
     </section>
+
+
+
+
+    
 
     <!-- Services -->
     <section
       class="bg-gray-100 py-16 flex justify-center items-center min-h-screen overflow-hidden"
     >
       <div
-        class="container mx-auto max-w-screen-lg md:animate-slideLeft h-full px-4 sm:px-8 md:px-12 lg:px-16"
+        class="container mx-auto max-w-screen-lg md:animate-slideLeft h-full px-4"
       >
         <div class="text-center">
           <p
-            class="text-[#f5ca4f] text-xs md:text-sm tracking-widest dark:text-white"
+            class="font-public text-xs md:text-sm tracking-widest"
           >
             OUR BEST SERVICES
           </p>
           <h2
-            class="text-blue-700 mb-4 text-3xl sm:text-2xl md:text-4xl lg:text-4xl font-bold tracking-tight leading-none dark:text-white"
+            class="font-bree text-secondary mb-4 text-3xl sm:text-2xl md:text-4xl lg:text-4xl font-bold tracking-tight leading-none"
           >
-            Our Regular <span class="text-[#f5ca4f]">Services</span> For <br />
+            Our Regular <span class="text-primary">Services</span> For <br />
             Our Customers
           </h2>
         </div>
 
+
         <div class="space-y-8 container max-w-screen-lg mx-auto relative">
           <!-- Upper Row -->
           <div class="relative overflow-hidden">
-            <div
-              class="flex md:flex-row flex-col items-center md:animate-slideRight space-x-0 md:space-x-4 space-y-4 md:space-y-0"
-            >
-              <div class="group relative w-full md:w-3/5 h-[28rem] md:h-full">
+            <div class="flex md:flex-row flex-col items-center md:animate-slideRight space-x-0 md:space-x-4 space-y-4 md:space-y-0">
+              
+              <!-- Big Image -->
+              <div class="group relative w-full lg:w-1/2 h-80">
                 <img
                   src="https://i.ibb.co/ykT2qjZ/side-view-man-cleaning-window.jpg"
                   alt="Big Image"
-                  class="w-full h-full md:w-full md:h-full object-cover rounded-lg shadow-md group-hover:blur-sm transition duration-300"
+                  class="w-full h-full object-cover rounded-2xl shadow-md group-hover:blur-sm transition duration-300"
                 />
-
-                <div
-                  class="absolute p-4 flex justify-end inset-0 bg-blue-600 opacity-0 group-hover:opacity-50 transition duration-300"
-                ></div>
-
-                <div
-                  class="absolute bottom-2 left-4 text-white opacity-0 group-hover:opacity-100 transition duration-300"
-                >
+                <div class="absolute p-4 flex justify-end inset-0 bg-blue-600 opacity-0 group-hover:opacity-50 transition duration-300"></div>
+                <div class="absolute bottom-2 left-4 text-white opacity-0 group-hover:opacity-100 transition duration-300">
                   <div class="flex justify-center">
                     <div>
-                      <h3 class="text-white font-bold text-lg">
-                        Dishes Cleaning
-                      </h3>
+                      <h3 class="text-white font-bold text-lg">Dishes Cleaning</h3>
                       <p class="text-white text-sm">Window cleaning</p>
                     </div>
                   </div>
-                  <div
-                    class="absolute bottom-4 right-4 bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center"
-                  >
+                  <div class="absolute bottom-4 right-4 bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center">
                     <span class="text-xl">+</span>
                   </div>
                 </div>
               </div>
-
-              <div
-                class="group relative w-full md:w-1/4 h-[28rem] md:h-[19rem]"
-              >
+        
+              <!-- Small Image 1 -->
+              <div class="group relative w-full lg:w-[25%] h-80">
                 <img
                   src="https://i.ibb.co/ykT2qjZ/side-view-man-cleaning-window.jpg"
                   alt="Small Image"
-                  class="w-full h-full object-cover rounded-lg shadow-md group-hover:blur-sm transition duration-300"
+                  class="w-full h-full object-cover rounded-2xl shadow-md group-hover:blur-sm transition duration-300"
                 />
-
-                <div
-                  class="absolute p-4 flex justify-end inset-0 bg-blue-600 opacity-0 group-hover:opacity-50 transition duration-300"
-                ></div>
-
-                <div
-                  class="absolute bottom-2 left-4 text-white opacity-0 group-hover:opacity-100 transition duration-300"
-                >
+                <div class="absolute p-4 flex justify-end inset-0 bg-blue-600 opacity-0 group-hover:opacity-50 transition duration-300"></div>
+                <div class="absolute bottom-2 left-4 text-white opacity-0 group-hover:opacity-100 transition duration-300">
                   <div class="flex justify-center">
                     <div>
-                      <h3 class="text-white font-bold text-lg">
-                        Dishes Cleaning
-                      </h3>
+                      <h3 class="text-white font-bold text-lg">Dishes Cleaning</h3>
                       <p class="text-white text-sm">Window cleaning</p>
                     </div>
                   </div>
-                  <div
-                    class="absolute bottom-4 right-4 bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center"
-                  >
+                  <div class="absolute bottom-4 right-4 bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center">
                     <span class="text-xl">+</span>
                   </div>
                 </div>
               </div>
-
-              <div
-                class="group relative w-full md:w-1/4 h-[28rem] md:h-[19rem]"
-              >
+        
+              <!-- Small Image 2 -->
+              <div class="group relative w-full lg:w-[25%] h-80">
                 <img
                   src="https://i.ibb.co/ykT2qjZ/side-view-man-cleaning-window.jpg"
                   alt="Small Image"
-                  class="w-full h-full object-cover rounded-lg shadow-md group-hover:blur-sm transition duration-300"
+                  class="w-full h-full object-cover rounded-2xl shadow-md group-hover:blur-sm transition duration-300"
                 />
-
-                <div
-                  class="absolute p-4 flex justify-end inset-0 bg-blue-600 opacity-0 group-hover:opacity-50 transition duration-300"
-                ></div>
-
-                <div
-                  class="absolute bottom-2 left-4 text-white opacity-0 group-hover:opacity-100 transition duration-300"
-                >
+                <div class="absolute p-4 flex justify-end inset-0 bg-blue-600 opacity-0 group-hover:opacity-50 transition duration-300"></div>
+                <div class="absolute bottom-2 left-4 text-white opacity-0 group-hover:opacity-100 transition duration-300">
                   <div class="flex justify-center">
                     <div>
-                      <h3 class="text-white font-bold text-lg">
-                        Dishes Cleaning
-                      </h3>
+                      <h3 class="text-white font-bold text-lg">Dishes Cleaning</h3>
                       <p class="text-white text-sm">Window cleaning</p>
                     </div>
                   </div>
-                  <div
-                    class="absolute bottom-4 right-4 bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center"
-                  >
+                  <div class="absolute bottom-4 right-4 bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center">
                     <span class="text-xl">+</span>
                   </div>
                 </div>
               </div>
+        
             </div>
           </div>
+        
+
 
           <!-- Lower Row -->
-          <div class="relative overflow-hidden">
-            <div
-              class="flex md:flex-row flex-col items-center md:animate-slideRight space-x-0 md:space-x-4 space-y-4 md:space-y-0"
-            >
-              <div
-                class="group relative w-full md:w-1/4 h-[28rem] md:h-[19rem]"
-              >
-                <img
-                  src="https://i.ibb.co/ykT2qjZ/side-view-man-cleaning-window.jpg"
-                  alt="Small Image"
-                  class="w-full h-full object-cover rounded-lg shadow-md group-hover:blur-sm transition duration-300"
-                />
-
-                <div
-                  class="absolute p-4 flex justify-end inset-0 bg-blue-600 opacity-0 group-hover:opacity-50 transition duration-300"
-                ></div>
-
-                <div
-                  class="absolute bottom-2 left-4 text-white opacity-0 group-hover:opacity-100 transition duration-300"
-                >
-                  <div class="flex justify-center">
-                    <div>
-                      <h3 class="text-white font-bold text-lg">
-                        Dishes Cleaning
-                      </h3>
-                      <p class="text-white text-sm">Window cleaning</p>
+            <div class="relative overflow-hidden">
+              <div class="flex md:flex-row flex-col items-center md:animate-slideRight space-x-0 md:space-x-4 space-y-4 md:space-y-0">
+                
+          
+                <!-- Small Image 1 -->
+                <div class="group relative w-full lg:w-[25%] h-80">
+                  <img
+                    src="https://i.ibb.co/ykT2qjZ/side-view-man-cleaning-window.jpg"
+                    alt="Small Image"
+                    class="w-full h-full object-cover rounded-2xl shadow-md group-hover:blur-sm transition duration-300"
+                  />
+                  <div class="absolute p-4 flex justify-end inset-0 bg-blue-600 opacity-0 group-hover:opacity-50 transition duration-300"></div>
+                  <div class="absolute bottom-2 left-4 text-white opacity-0 group-hover:opacity-100 transition duration-300">
+                    <div class="flex justify-center">
+                      <div>
+                        <h3 class="text-white font-bold text-lg">Dishes Cleaning</h3>
+                        <p class="text-white text-sm">Window cleaning</p>
+                      </div>
+                    </div>
+                    <div class="absolute bottom-4 right-4 bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center">
+                      <span class="text-xl">+</span>
                     </div>
                   </div>
-                  <div
-                    class="absolute bottom-4 right-4 bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center"
-                  >
-                    <span class="text-xl">+</span>
-                  </div>
                 </div>
-              </div>
-
-              <div
-                class="group relative w-full md:w-1/4 h-[28rem] md:h-[19rem]"
-              >
-                <img
-                  src="https://i.ibb.co/ykT2qjZ/side-view-man-cleaning-window.jpg"
-                  alt="Small Image"
-                  class="w-full h-full object-cover rounded-lg shadow-md group-hover:blur-sm transition duration-300"
-                />
-
-                <div
-                  class="absolute p-4 flex justify-end inset-0 bg-blue-600 opacity-0 group-hover:opacity-50 transition duration-300"
-                ></div>
-
-                <div
-                  class="absolute bottom-2 left-4 text-white opacity-0 group-hover:opacity-100 transition duration-300"
-                >
-                  <div class="flex justify-center">
-                    <div>
-                      <h3 class="text-white font-bold text-lg">
-                        Dishes Cleaning
-                      </h3>
-                      <p class="text-white text-sm">Window cleaning</p>
+          
+                <!-- Small Image 2 -->
+                <div class="group relative w-full lg:w-[25%] h-80">
+                  <img
+                    src="https://i.ibb.co/ykT2qjZ/side-view-man-cleaning-window.jpg"
+                    alt="Small Image"
+                    class="w-full h-full object-cover rounded-2xl shadow-md group-hover:blur-sm transition duration-300"
+                  />
+                  <div class="absolute p-4 flex justify-end inset-0 bg-blue-600 opacity-0 group-hover:opacity-50 transition duration-300"></div>
+                  <div class="absolute bottom-2 left-4 text-white opacity-0 group-hover:opacity-100 transition duration-300">
+                    <div class="flex justify-center">
+                      <div>
+                        <h3 class="text-white font-bold text-lg">Dishes Cleaning</h3>
+                        <p class="text-white text-sm">Window cleaning</p>
+                      </div>
+                    </div>
+                    <div class="absolute bottom-4 right-4 bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center">
+                      <span class="text-xl">+</span>
                     </div>
                   </div>
-                  <div
-                    class="absolute bottom-4 right-4 bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center"
-                  >
-                    <span class="text-xl">+</span>
-                  </div>
                 </div>
-              </div>
 
-              <div class="group relative w-full md:w-3/5 h-44 md:h-full">
-                <img
-                  src="https://i.ibb.co/ykT2qjZ/side-view-man-cleaning-window.jpg"
-                  alt="Big Image"
-                  class="w-full h-full md:w-full md:h-full object-cover rounded-lg shadow-md group-hover:blur-sm transition duration-300"
-                />
 
-                <div
-                  class="absolute p-4 flex justify-end inset-0 bg-blue-600 opacity-0 group-hover:opacity-50 transition duration-300"
-                ></div>
-
-                <div
-                  class="absolute bottom-2 left-4 text-white opacity-0 group-hover:opacity-100 transition duration-300"
-                >
-                  <div class="flex justify-center">
-                    <div>
-                      <h3 class="text-white font-bold text-lg">
-                        Dishes Cleaning
-                      </h3>
-                      <p class="text-white text-sm">Window cleaning</p>
-                    </div>
-                  </div>
-                  <div
-                    class="absolute bottom-4 right-4 bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center"
-                  >
-                    <span class="text-xl">+</span>
-                  </div>
-                </div>
+                              <!-- Big Image -->
+                              <div class="group relative w-full lg:w-1/2 h-80">
+                                <img
+                                  src="https://i.ibb.co/ykT2qjZ/side-view-man-cleaning-window.jpg"
+                                  alt="Big Image"
+                                  class="w-full h-full object-cover rounded-2xl shadow-md group-hover:blur-sm transition duration-300"
+                                />
+                                <div class="absolute p-4 flex justify-end inset-0 bg-blue-600 opacity-0 group-hover:opacity-50 transition duration-300"></div>
+                                <div class="absolute bottom-2 left-4 text-white opacity-0 group-hover:opacity-100 transition duration-300">
+                                  <div class="flex justify-center">
+                                    <div>
+                                      <h3 class="text-white font-bold text-lg">Dishes Cleaning</h3>
+                                      <p class="text-white text-sm">Window cleaning</p>
+                                    </div>
+                                  </div>
+                                  <div class="absolute bottom-4 right-4 bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center">
+                                    <span class="text-xl">+</span>
+                                  </div>
+                                </div>
+                              </div>
+          
               </div>
             </div>
-          </div>
+          
         </div>
       </div>
     </section>
 
     <!-- Work Process -->
-    <section class="py-16 overflow-hidden">
+    <section class="bg-center h-fit py-16 overflow-hidden">
       <div class="container mx-auto max-w-screen-lg px-4 items-center">
         <div class="text-center mb-10">
-          <h2
-            class="text-[#f5ca4f] text-xs md:text-sm tracking-widest dark:text-white"
-          >
+          <h2 class="font-public text-primary text-xs md:text-sm tracking-widest">
             OUR WORKING PROCESS
           </h2>
           <p
-            class="text-blue-700 mb-4 text-3xl sm:text-2xl md:text-4xl lg:text-4xl font-bold tracking-tight leading-none dark:text-white"
+            class="font-bree text-secondary mb-4 text-3xl sm:text-2xl md:text-4xl lg:text-4xl font-bold tracking-tight leading-none"
           >
             WORK PROCESS
           </p>
@@ -674,15 +643,15 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
           <!-- Card 1 -->
           <div
-            class="max-w-full relative p-6 bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 rounded-2xl shadow-lg"
+            class="max-w-full relative p-6 bg-white border border-gray-200 rounded-2xl shadow-lg"
           >
             <div
               class="absolute bottom-0 right-0 bg-blue-100 rounded-tl-full place-self-end w-20 h-20 flex items-center justify-center"
             >
-              <span class="text-2xl font-bold text-blue-700">01</span>
+              <span class="text-2xl font-bold text-secondary">01</span>
             </div>
             <h5
-              class="mb-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white"
+              class="font-public mb-4 text-xl font-bold tracking-tight text-gray-900"
             >
               Book Online Form
             </h5>
@@ -694,15 +663,15 @@
 
           <!-- Card 2 -->
           <div
-            class="max-w-full relative pt-6 pr-6 pb-6 pl-20 bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 rounded-2xl shadow-lg"
+            class="max-w-full relative pt-6 pr-6 pb-6 pl-20 bg-white border border-gray-200 rounded-2xl shadow-lg"
           >
             <div
               class="absolute bottom-0 left-0 bg-blue-100 rounded-tr-full place-self-end w-20 h-20 flex items-center justify-center"
             >
-              <span class="text-2xl font-bold text-blue-700">02</span>
+              <span class="text-2xl font-bold text-secondary">02</span>
             </div>
             <h5
-              class="mb-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white"
+              class="font-public mb-4 text-xl font-bold tracking-tight text-gray-900"
             >
               Get Confirmation
             </h5>
@@ -714,15 +683,15 @@
 
           <!-- Card 3 -->
           <div
-            class="max-w-full relative p-6 bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 rounded-2xl shadow-lg"
+            class="max-w-full relative p-6 bg-white border border-gray-200 rounded-2xl shadow-lg"
           >
             <div
               class="absolute top-0 right-0 bg-blue-100 rounded-bl-full place-self-end w-20 h-20 flex items-center justify-center"
             >
-              <span class="text-2xl font-bold text-blue-700">03</span>
+              <span class="text-2xl font-bold text-secondary">03</span>
             </div>
             <h5
-              class="mb-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white"
+              class="font-public mb-4 text-xl font-bold tracking-tight text-gray-900"
             >
               Estimate Budget
             </h5>
@@ -734,15 +703,15 @@
 
           <!-- Card 4 -->
           <div
-            class="max-w-full relative pt-6 pr-6 pb-6 pl-20 bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700 rounded-2xl shadow-lg"
+            class="max-w-full relative pt-6 pr-6 pb-6 pl-20 bg-white border border-gray-200 rounded-2xl shadow-lg"
           >
             <div
               class="absolute top-0 left-0 bg-blue-100 rounded-br-full place-self-end w-20 h-20 flex items-center justify-center"
             >
-              <span class="text-2xl font-bold text-blue-700">04</span>
+              <span class="text-2xl font-bold text-secondary">04</span>
             </div>
             <h5
-              class="mb-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white"
+              class="font-public mb-4 text-xl font-bold tracking-tight text-gray-900"
             >
               Hire Our Agent!
             </h5>
@@ -755,13 +724,8 @@
       </div>
     </section>
 
-    <!-- After this above add the booking details -->
-
     <!-- Different company youve worked with -->
-    <section
-      class="bg-auto h-[200px] content-center"
-      style="background-image: url('https://i.ibb.co/0s7Psth/image.png')"
-    >
+    <!-- <section class="bg-auto h-[200px] content-center">
       <div class="w-3/5 flex justify-between items-center h-20 p-4 m-auto">
         <div>
           <h2 class="text-base font-bold">Bounvita</h2>
@@ -783,9 +747,49 @@
           <p class="text-xs">Contact us 24 Hours a day</p>
         </div>
       </div>
+    </section> -->
+
+    <section class="bg-white py-12">
+      <div class="text-center mb-8">
+        <p class="font-semibold text-sm text-gray-800">
+          Trusted by top brands for exceptional cleaning
+        </p>
+      </div>
+      <div class="flex flex-wrap justify-center items-center gap-8 px-4">
+        <!-- Repeat logos -->
+        <img src="webflow-logo.svg" alt="Webflow" class="h-6" />
+        <img src="relume-logo.svg" alt="Relume" class="h-6" />
+        <img src="webflow-logo.svg" alt="Webflow" class="h-6" />
+        <img src="relume-logo.svg" alt="Relume" class="h-6" />
+        <img src="webflow-logo.svg" alt="Webflow" class="h-6" />
+        <img src="relume-logo.svg" alt="Relume" class="h-6" />
+        <img src="webflow-logo.svg" alt="Webflow" class="h-6" />
+        <img src="relume-logo.svg" alt="Relume" class="h-6" />
+        <img src="webflow-logo.svg" alt="Webflow" class="h-6" />
+        <img src="relume-logo.svg" alt="Relume" class="h-6" />
+      </div>
     </section>
 
-    <section class="bg-gradient-to-br from-[#FFFBF5] to-[#F5F5FF] py-16">
+    <section
+      class="bg-gray-100 py-16 px-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center"
+    >
+      <div class="mb-6 md:mb-0">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+          Transform Your Space Today
+        </h2>
+        <p class="text-gray-700">Experience the Clean You Deserve</p>
+      </div>
+      <div class="flex gap-4">
+        <button class="bg-black text-white px-6 py-2 rounded-md">Book</button>
+        <button class="border border-black text-black px-6 py-2 rounded-md">
+          Shop
+        </button>
+      </div>
+    </section>
+
+    <section
+      class="bg-gradient-to-br from-[#FFFBF5] to-[#F5F5FF] overflow-hidden py-16"
+    >
       <div class="container max-w-screen-lg mx-auto px-4">
         <div class="grid md:grid-cols-2 gap-10">
           <!-- Contact Section -->
@@ -884,6 +888,158 @@
         </div>
       </div>
     </section>
+
+    <!-- Get estimate -->
+    <section
+      class="relative z-0 text-left flex items-center justify-center h-0"
+    >
+      <div
+        class="absolute z-10 h-64 w-3/5 place-items-center bg-custom-gradient border border-gray-200 rounded-lg shadow-lg shadow-blue-500/50 grid items-end"
+      >
+        <svg
+          class="absolute w-fit opacity-50 bg-cover"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+        >
+          <path
+            fill="#e3bb49"
+            fill-opacity="1"
+            d="M0,256L80,218.7C160,181,320,107,480,101.3C640,96,800,160,960,154.7C1120,149,1280,75,1360,37.3L1440,0L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+          ></path>
+        </svg>
+
+        <svg
+          class="absolute w-fit opacity-60 bg-cover"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+        >
+          <path
+            fill="#e3bb49"
+            fill-opacity="1"
+            d="M0,0L30,0C60,0,120,0,180,26.7C240,53,300,107,360,122.7C420,139,480,117,540,96C600,75,660,53,720,69.3C780,85,840,139,900,181.3C960,224,1020,256,1080,250.7C1140,245,1200,203,1260,165.3C1320,128,1380,96,1410,80L1440,64L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"
+          ></path>
+        </svg>
+
+        <div class="absolute grid grid-cols-2 gap-8 place-items-center">
+          <div class="px-8">
+            <p class="text-3xl font-bold text-white z-20">
+              Get Our Services, It's Affordable Save Time & Save Money.
+            </p>
+            <button
+              type="button"
+              class="text-white border-solid border-2 border-primatext-primary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-center dark:bg-blue-600 dark:hover:bg-setext-secondary dark:focus:ring-blue-800 bg-gradient-to-r from-[#ffdd52] via-primatext-primary to-[#c29f3e] dark:from-blue-500 dark:via-blue-600 dark:to-setext-secondary hover:bg-gradient-to-br text-sm px-5 py-2.5 me-2 mb-2"
+            >
+              Booking Now
+            </button>
+          </div>
+        </div>
+      </div>
+      <img
+        class="absolute right-[20%] z-30 h-[300px] object-cover -mt-10"
+        src="https://i.ibb.co/ydGsRzk/cheerful-ethnic-housewife-has-braids-poses-with-mop-detergent-bottle-happy-clean.png"
+        alt="cheerful-ethnic-housewife-has-braids-poses-with-mop-detergent-bottle-happy-clean"
+      />
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-gray-200 pt-12 px-6"></footer>
+      <div
+        class="container max-w-screen-lg pt-40 mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 text-sm text-gray-700"
+      >
+        <!-- Logo -->
+        <div class="col-span-2 md:col-span-1">
+          <h1 class="text-2xl font-bold">Logo</h1>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h2 class="font-semibold mb-2">Quick Links</h2>
+          <ul class="space-y-1">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Services</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Blog Posts</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+
+        <!-- Follow Us -->
+        <div>
+          <h2 class="font-semibold mb-2">Follow Us</h2>
+          <ul class="space-y-1">
+            <li><a href="#">Facebook Page</a></li>
+            <li><a href="#">Twitter Feed</a></li>
+            <li><a href="#">Instagram Profile</a></li>
+            <li><a href="#">LinkedIn Page</a></li>
+            <li><a href="#">YouTube Channel</a></li>
+          </ul>
+        </div>
+
+        <!-- Customer Support -->
+        <div>
+          <h2 class="font-semibold mb-2">Customer Support</h2>
+          <ul class="space-y-1">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Live Chat</a></li>
+            <li><a href="#">Service Areas</a></li>
+            <li><a href="#">Testimonials</a></li>
+            <li><a href="#">Case Studies</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div>
+          <h2 class="font-semibold mb-2">Resources</h2>
+          <ul class="space-y-1">
+            <li><a href="#">Cleaning Tips</a></li>
+            <li><a href="#">Product Guides</a></li>
+            <li><a href="#">Safety Protocols</a></li>
+            <li><a href="#">Sustainability Practices</a></li>
+            <li><a href="#">Community Initiatives</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div>
+          <h2 class="font-semibold mb-2">Legal</h2>
+          <ul class="space-y-1">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookies Settings</a></li>
+            <li><a href="#">Customer Feedback</a></li>
+            <li><a href="#">Service Guarantee</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom section -->
+      <div
+        class="border-gray-300 mt-10 pt-6 pb-10 text-sm text-gray-600 container max-w-screen-lg mx-auto "
+      >
+        <div
+          class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4"
+        >
+          <!-- Copyright & Links -->
+          <div class="flex flex-col sm:flex-row gap-2 sm:gap-6 items-center">
+            <p>© 2025 DrKleen. All rights reserved.</p>
+            <div class="flex gap-4 underline">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+              <a href="#">Cookies Settings</a>
+            </div>
+          </div>
+
+          <!-- Social Icons -->
+          <div class="flex gap-4 text-xl">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <script src="drkleen.js"></script>
   </body>
