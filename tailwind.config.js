@@ -3,7 +3,6 @@ const plugin = require("tailwindcss/plugin");
 
 module.exports = {
   content: [
-    "C:/Users/ayomi/Desktop/Project/DrKleen Cleaning Services/dist/drkleen.html",
     "C:/Users/ayomi/Desktop/Project/DrKleen Cleaning Services/dist/drkleen.js",
     "C:/Users/ayomi/Desktop/Project/DrKleen Cleaning Services/dist/test.html",
     "C:/Users/ayomi/Desktop/Project/DrKleen Cleaning Services/src/input.css",
