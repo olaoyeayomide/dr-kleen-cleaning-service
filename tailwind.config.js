@@ -1,12 +1,9 @@
 /** @type {import('tailwindcss').Config} */
-const plugin = require("tailwindcss/plugin");
-
 module.exports = {
   content: [
-    "C:/Users/ayomi/Desktop/Project/DrKleen Cleaning Services/dist/drkleen.js",
-    "C:/Users/ayomi/Desktop/Project/DrKleen Cleaning Services/dist/test.html",
-    "C:/Users/ayomi/Desktop/Project/DrKleen Cleaning Services/src/input.css",
-    "node_modules/preline/dist/*.js",
+    "./dist/**/*.{html,js,ts,tsx}",
+    "./src/**/*.{html,js,ts,tsx,css}",
+    "./node_modules/preline/dist/*.js",
   ],
   theme: {
     extend: {
@@ -22,17 +19,14 @@ module.exports = {
         gradientMid: "#f5ca4f",
         gradientEnd: "#c29f3e",
         // White gradient colors
-        whiteGradientStart: "#ffffff", // pure white
-        whiteGradientMid: "#f3f4f6", // soft light gray
+        whiteGradientStart: "#ffffff",
+        whiteGradientMid: "#f3f4f6",
         whiteGradientEnd: "#ffffff",
       },
-
       backgroundImage: {
         "bubble-bg":
           "linear-gradient(to left, transparent, #fff 100%), url('https://i.ibb.co/hRBS6xzR/freepik-adjust-80776.png')",
       },
-
-      // BUBBLE ANIMATION
       animation: {
         float: "float 8s infinite ease-in-out",
       },
@@ -44,5 +38,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("preline/plugin")],
 };

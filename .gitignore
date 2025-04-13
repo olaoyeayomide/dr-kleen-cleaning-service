@@ -1,2 +1,17 @@
 note.text
 dist/drkleen.html
+
+
+# Dependency directories
+node_modules/
+build/
+
+# Environment variable files
+.env
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
